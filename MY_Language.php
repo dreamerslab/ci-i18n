@@ -13,7 +13,7 @@ class MY_Language extends CI_Language {
 	// languages
 	var $languages = array(
 		'en' => 'english',
-		'fr' => 'french'
+		'tw' => 'chinese'
 	);
 
 	// special URIs (not localized)
@@ -56,10 +56,8 @@ class MY_Language extends CI_Language {
 		{
 			// set default language
 			$CFG->set_item('language', $this->languages[$this->default_lang()]);
-
-			// redirect
-			header("Location: " . $CFG->site_url($this->localized($this->default_uri)), TRUE, 302);
-			exit;
+      // use default route
+      $RTR->uri->segments = $RTR->uri->rsegments;
 		}
 	}
 	
